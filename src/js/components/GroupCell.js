@@ -12,7 +12,8 @@ class GroupCell extends PureComponent {
         return (
             <Cell
                 description={desc}
-                before={<Avatar size={40} src={photo}/>}
+                before={<Avatar size={50} src={photo}/>}
+               
             >
                 {name}
             </Cell>

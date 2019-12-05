@@ -88,7 +88,6 @@ class HomePanelGroups extends React.Component {
     render() {
         const {id, goBack} = this.props;
 
-        let adminedGroupsList = renderGroupsList(this.state.groups.admined);
         let otherGroupsList = renderGroupsList(this.state.groups.other);
 
         return (
@@ -96,24 +95,19 @@ class HomePanelGroups extends React.Component {
                 <PanelHeader
                     left={<PanelHeaderBack onClick={() => goBack()}/>}
                 >
-                    Группы
+                    Друзья
                 </PanelHeader>
                 {this.state.loading && <PanelSpinner/>}
                 {!this.state.loading && this.state.errorGetAuthToken && <Group>
-                    <Div>Возникла ошибка при получении данных, возможно Вы не выдали права на список групп.</Div>
+                    <Div>Возникла ошибка при получении данных.</Div>
                     <Div>
                         <Button size="l" stretched={true} onClick={() => this.getAuthToken()}>Запросить
                             повторно</Button>
                     </Div>
                 </Group>}
-                {!this.state.loading && !this.state.errorGetAuthToken && adminedGroupsList &&
-                <Group title="Администрируемые">
-                    <List>
-                        {adminedGroupsList}
-                    </List>
-                </Group>}
+                
                 {!this.state.loading && !this.state.errorGetAuthToken && otherGroupsList &&
-                <Group title="Остальные">
+                <Group title="Ваши друзья">
                     <List>
                         {otherGroupsList}
                     </List>

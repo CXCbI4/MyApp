@@ -9,7 +9,8 @@ export const renderGroupsList = (items) => {
                 key={group.id}
                 description={group.description}
                 photo={group.photo_100}
-                name={group.name}/>
+                name={group.name}
+                />
         ));
     }
     return groups;
