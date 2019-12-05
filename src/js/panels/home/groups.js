@@ -13,7 +13,7 @@ class HomePanelGroups extends React.Component {
 
     state = {
         friends: {
-            other: [],
+            other: []
         },
         loading: true,
         errorGetAuthToken: false
@@ -50,10 +50,11 @@ class HomePanelGroups extends React.Component {
     }
 
     async getGroupsList() {
-        if (localStorage.getItem('Friends')) {
+
+        if (localStorage.getItem('userGroupsOther')) {
             this.setState({
                 friends: {
-                    other: JSON.parse(localStorage.getItem('Friends')),
+                    other: JSON.parse(localStorage.getItem('userGroupsOther'))
                 },  
                 loading: false
             });
@@ -61,14 +62,14 @@ class HomePanelGroups extends React.Component {
             return;
         }
 
-        var friends = await VK.friendsGet();
+        let friends = await VK.friendsGet();
 
        
         let otherGroups = friends.items.filter(function (item) {
            return item.is_admin === 0;
        });
 
-        localStorage.setItem('Friends', JSON.stringify(otherGroups));
+        localStorage.setItem('userGroupsOther', JSON.stringify(otherGroups));
 
         this.setState({
            friends: {
@@ -82,14 +83,14 @@ class HomePanelGroups extends React.Component {
     render() {
         const {id, goBack} = this.props;
 
-        //var friendsu = VK.friendsGet();
+        var friendsu = VK.friendsGet();
 
 
         let otherGroupsList = renderGroupsList(this.state.friends.other);
 
         //console.log(this.state.friends);
 
-        //console.log();
+        console.log(friendsu);
 
         return (
             <Panel id={id}>
