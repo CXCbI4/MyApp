@@ -45,8 +45,9 @@ export const swipeBackOff = () => {
 };
 
 export const friendsGet = () => {
-    console.log('test');
-    return APICall('friends.search', {
+
+    return APICall('friends.get', {
+        "extended": "1",
         "fields": "first_name,last_name,photo_100",
         "count": "1000"
     });

@@ -8,7 +8,7 @@ class GroupCell extends PureComponent {
         const {photo, nameF , nameL} = this.props;
 
         //let desc = description.length > 0 ? description : "Описание отсутствует";
-
+        //console.log(photo);
         return (
             <Cell
                 
