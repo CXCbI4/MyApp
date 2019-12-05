@@ -6,7 +6,7 @@ import {store} from "../../index";
 import {setColorScheme, setAccessToken} from "../store/vk/actions";
 
 const APP_ID = 7232334;
-const API_VERSION = '5.92';
+const API_VERSION = '5.52';
 
 export const initApp = () => (dispatch) => {
     const VKConnectOldCallback = (e) => {
@@ -46,7 +46,7 @@ export const swipeBackOff = () => {
 
 export const friendsGet = () => {
     return APICall('friends.search', {
-        "fields": "id,first_name,last_name,photo_100",
+        "fields": "first_name",
         "count": "100"
     });
 };
