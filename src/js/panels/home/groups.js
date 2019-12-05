@@ -12,8 +12,7 @@ import {Div, List, Panel, Group, Button, PanelHeader, PanelSpinner, PanelHeaderB
 class HomePanelGroups extends React.Component {
 
     state = {
-        groups: {
-            admined: [],
+        friends: {
             other: [],
         },
         loading: true,
@@ -22,14 +21,14 @@ class HomePanelGroups extends React.Component {
 
     componentDidMount() {
         if (this.props.accessToken === undefined) {
-            this.getAuthToken();
+            console.log(this.getAuthToken());
         } else {
             this.getGroupsList();
         }
     }
 
     getAuthToken() {
-        this.props.dispatch(VK.getAuthToken(['groups']));
+        this.props.dispatch(VK.getAuthToken(['friends']));
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -51,10 +50,9 @@ class HomePanelGroups extends React.Component {
     }
 
     async getGroupsList() {
-        if (localStorage.getItem('userGroupsAdmined') && localStorage.getItem('userGroupsOther')) {
+        if (localStorage.getItem('userGroupsOther')) {
             this.setState({
-                groups: {
-                    admined: JSON.parse(localStorage.getItem('userGroupsAdmined')),
+                friends: {
                     other: JSON.parse(localStorage.getItem('userGroupsOther')),
                 },
                 loading: false
@@ -63,22 +61,18 @@ class HomePanelGroups extends React.Component {
             return;
         }
 
-        let groups = await VK.groupsGet();
+        let friends = await VK.friendsGet();
 
-        let adminedGroups = groups.items.filter(function (item) {
-            return item.is_admin === 1;
-        });
-
-        let otherGroups = groups.items.filter(function (item) {
+       
+        let otherGroups = friends.items.filter(function (item) {
             return item.is_admin === 0;
         });
 
-        localStorage.setItem('userGroupsAdmined', JSON.stringify(adminedGroups));
         localStorage.setItem('userGroupsOther', JSON.stringify(otherGroups));
 
         this.setState({
-            groups: {
-                admined: adminedGroups,
+            friends: {
+
                 other: otherGroups
             },
             loading: false
@@ -88,7 +82,7 @@ class HomePanelGroups extends React.Component {
     render() {
         const {id, goBack} = this.props;
 
-        let otherGroupsList = renderGroupsList(this.state.groups.other);
+        let otherGroupsList = renderGroupsList(this.state.friends.other);
 
         return (
             <Panel id={id}>

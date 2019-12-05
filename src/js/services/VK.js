@@ -44,6 +44,15 @@ export const swipeBackOff = () => {
     VKConnect.send("VKWebAppDisableSwipeBack", {});
 };
 
+export const friendsGet = () => {
+    return APICall('friends.search', {
+        
+        
+        "count": "100"
+    });
+};
+
+/* 
 export const groupsGet = () => {
     return APICall('groups.get', {
         "extended": "1",
@@ -52,15 +61,19 @@ export const groupsGet = () => {
     });
 };
 
+*/
 export const APICall = (method, params) => {
     params['access_token'] = store.getState().vkui.accessToken;
+
     params['v'] = params['v'] === undefined ? API_VERSION : params['v'];
 
     return VKConnect.send("VKWebAppCallAPIMethod", {
         "method": method,
         "params": params
     }).then(data => {
+        console.log(data);
         return data.data.response;
+
     }).catch(error => {
         return error;
     });

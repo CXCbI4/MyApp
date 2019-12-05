@@ -17,7 +17,7 @@ class HomePanelBase extends React.Component {
 
         return (
             <Panel id={id}>
-                <PanelHeader>MiniApp</PanelHeader>
+                <PanelHeader>Приложение</PanelHeader>
                 <Group>
                     <Div>
                         <Button size="l" stretched={true} onClick={() => setPage('home', 'groups')}>Список друзей</Button>

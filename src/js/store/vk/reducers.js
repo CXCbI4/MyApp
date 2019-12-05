@@ -55,23 +55,7 @@ export const vkuiReducer = (state = initialState, action) => {
             };
         }
 
-        case SET_SCROLL_POSITION_BY_ID: {
-            let element = document.getElementById(action.payload.component).getElementsByClassName("HorizontalScroll__in")[0];
-
-            let x = element.scrollLeft;
-            let y = element.scrollTop;
-
-            return {
-                ...state,
-                componentScroll: {
-                    ...state.componentScroll,
-                    [action.payload.component]: {
-                        x: x,
-                        y: y
-                    }
-                },
-            };
-        }
+        
 
         default: {
             return state;

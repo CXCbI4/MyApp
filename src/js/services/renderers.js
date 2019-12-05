@@ -2,16 +2,13 @@ import React from 'react';
 import GroupCell from '../components/GroupCell';
 
 export const renderGroupsList = (items) => {
-    let groups = null;
+    let friends = null;
     if (items !== undefined && items !== null && items.length !== 0) {
-        groups = items.map((group) => (
+        friends = items.map((friends) => (
             <GroupCell
-                key={group.id}
-                description={group.description}
-                photo={group.photo_100}
-                name={group.name}
+                photo = {friends.photo_100}
                 />
         ));
     }
-    return groups;
+    return friends;
 };
