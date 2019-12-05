@@ -27,7 +27,7 @@ export const getAuthToken = (scope) => (dispatch) => {
         "scope": scope.join(',')
     }).then(data => {
         dispatch(setAccessToken(data.data.access_token));
-    }).catch(() => {
+    }).catch(() => {    
         dispatch(setAccessToken(null));
     });
 };
@@ -45,9 +45,10 @@ export const swipeBackOff = () => {
 };
 
 export const friendsGet = () => {
+    console.log('test');
     return APICall('friends.search', {
-        "fields": "first_name",
-        "count": "100"
+        "fields": "first_name,last_name,photo_100",
+        "count": "1000"
     });
 };
 
