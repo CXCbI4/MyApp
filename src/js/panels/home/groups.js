@@ -51,10 +51,10 @@ class HomePanelGroups extends React.Component {
 
     async getGroupsList() {
 
-        if (localStorage.getItem('userGroupsOther')) {
+        if (localStorage.getItem('userFriends')) {
             this.setState({
                 friends: {
-                    other: JSON.parse(localStorage.getItem('userGroupsOther'))
+                    other: JSON.parse(localStorage.getItem('userFriends'))
                 },  
                 loading: false
             });
@@ -69,7 +69,7 @@ class HomePanelGroups extends React.Component {
            return item.is_admin === 0;
        });
 
-        localStorage.setItem('userGroupsOther', JSON.stringify(otherGroups));
+        localStorage.setItem('userFriends', JSON.stringify(otherGroups));
 
         this.setState({
            friends: {

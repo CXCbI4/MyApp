@@ -7,7 +7,7 @@ export const renderGroupsList = (items) => {
         friends = items.map((friends) => (
             <GroupCell
                 photo = {friends.photo_100}
-                nameF = {friends.first_name}
+                nameF = {friends.first_name + ' '}
                 nameL = {friends.last_name}
 
                 />
