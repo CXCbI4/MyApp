@@ -52,16 +52,6 @@ export const friendsGet = () => {
     });
 };
 
-/* 
-export const groupsGet = () => {
-    return APICall('groups.get', {
-        "extended": "1",
-        "fields": "description",
-        "count": "100"
-    });
-};
-
-*/
 export const APICall = (method, params) => {
     params['access_token'] = store.getState().vkui.accessToken;
 

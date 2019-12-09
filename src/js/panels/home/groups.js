@@ -51,23 +51,24 @@ class HomePanelGroups extends React.Component {
 
     async getGroupsList() {
 
-        if (localStorage.getItem('userFriends')) {
-            this.setState({
-                friends: {
-                    other: JSON.parse(localStorage.getItem('userFriends'))
-                },  
-                loading: false
-            });
+       // if (localStorage.getItem('userFriends')) {
 
-            return;
-        }
+         //   this.setState({
+        //        friends: {
+                //    other: JSON.parse(localStorage.getItem('userFriends'))
+               // },  
+               // loading: false
+           // });
+
+           // return;
+      //  }
 
         let friends = await VK.friendsGet();
+        
 
        
-        let otherGroups = friends.items.filter(function (item) {
-           return item.is_admin === 0;
-       });
+        let otherGroups = friends.items;
+        console.log(otherGroups);
 
         localStorage.setItem('userFriends', JSON.stringify(otherGroups));
 
@@ -87,10 +88,11 @@ class HomePanelGroups extends React.Component {
 
 
         let otherGroupsList = renderGroupsList(this.state.friends.other);
+       // console.log(VK.friendsGet());
 
         //console.log(this.state.friends);
 
-        console.log(friendsu);
+        console.log(this.state.friends.other);
 
         return (
             <Panel id={id}>

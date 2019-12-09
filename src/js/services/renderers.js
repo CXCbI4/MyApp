@@ -4,11 +4,11 @@ import GroupCell from '../components/GroupCell';
 export const renderGroupsList = (items) => {
     let friends = null;
   if (items !== undefined && items !== null && items.length !== 0) {
-        friends = items.map((friends) => (
+        friends = items.map((friend) => (
             <GroupCell
-                photo = {friends.photo_100}
-                nameF = {friends.first_name + ' '}
-                nameL = {friends.last_name}
+                photo = {friend.photo_100}
+                nameF = {friend.first_name}
+                nameL = {friend.last_name}
 
                 />
         ));
