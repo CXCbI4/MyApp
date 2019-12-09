@@ -84,7 +84,7 @@ class HomePanelGroups extends React.Component {
     render() {
         const {id, goBack} = this.props;
 
-        var friendsu = VK.friendsGet();
+        //var friendsu = VK.friendsGet();
 
 
         let otherGroupsList = renderGroupsList(this.state.friends.other);
@@ -99,7 +99,7 @@ class HomePanelGroups extends React.Component {
                 <PanelHeader
                     left={<PanelHeaderBack onClick={() => goBack()}/>}
                 >
-                    Друзья
+                    (Друзья)
                 </PanelHeader>
                 {this.state.loading && <PanelSpinner/>}
                 {!this.state.loading && this.state.errorGetAuthToken && <Group>
