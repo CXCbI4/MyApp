@@ -22,7 +22,7 @@ class HomePanelBase extends React.Component {
                     <Div>
                         <Button size="l" stretched={true} onClick={() => setPage('home', 'groups')}>Список друзей</Button>
                     </Div>
-                    <div style = "background-color: black, width: 20px, height: 20px"/> //это меняли
+                    
                 </Group>
             </Panel>
         );

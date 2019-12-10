@@ -9,7 +9,6 @@ import {renderGroupsList} from '../../services/renderers';
 
 import {Div, List, Panel, Group, Button, PanelHeader, PanelSpinner, PanelHeaderBack} from "@vkontakte/vkui";
 
-
 class HomePanelGroups extends React.Component {
 
     state = {
@@ -97,7 +96,6 @@ class HomePanelGroups extends React.Component {
 
         return (
             <Panel id={id}>
-                <div class = "testXYU" style = "background-color: black, width: 20px, height: 20px"/>
                 <PanelHeader
                     left={<PanelHeaderBack onClick={() => goBack()}/>}
                 >
