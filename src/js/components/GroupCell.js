@@ -5,7 +5,7 @@ import {Cell, Avatar} from "@vkontakte/vkui";
 class GroupCell extends PureComponent {
 
     render() {
-        const {photo, nameF , nameL} = this.props;
+        const {photo, nameF,  nameL} = this.props;
 
         //let desc = description.length > 0 ? description : "Описание отсутствует";
         //console.log(photo);
@@ -15,7 +15,8 @@ class GroupCell extends PureComponent {
                 before={<Avatar size={50} src={photo}/>}
                
             >
-               {nameF} 
+               {nameF}
+               {" "} 
                {nameL}
                
             </Cell>
