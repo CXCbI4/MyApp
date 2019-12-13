@@ -15,6 +15,9 @@ import HomePanelGroups from './js/panels/home/groups';
 import MorePanelBase from './js/panels/more/base';
 import MorePanelExample from './js/panels/more/example';
 
+import GiftPanelProfile from './js/panels/more/example1';
+//import GiftPanelExample from './js/panels/more/example';
+
 import HomeBotsListModal from './js/components/modals/HomeBotsListModal';
 import HomeBotInfoModal from './js/components/modals/HomeBotInfoModal';
 
@@ -123,6 +126,27 @@ class App extends React.Component {
                             <MorePanelExample id="filters"/>
                         </View>
                     </Root>
+                    <Root id="gift" activeView={activeView} popout={popout}>
+                        <View
+                            id="gift"
+                            modal={homeModals}
+                            activePanel={activePanel}
+                            history={history}
+                            onSwipeBack={() => goBack()}
+                        >
+                            <MorePanelBase id="callextra"/>
+                        </View>
+                        <View
+                            id="extra"
+                            modal={homeModals}
+                            activePanel={activePanel}
+                            history={history}
+                            onSwipeBack={() => goBack()}
+                        >
+                            <MorePanelExample id="calling"/>
+                        </View>
+                    </Root>
+                    
                 </Epic>
             </ConfigProvider>
         );

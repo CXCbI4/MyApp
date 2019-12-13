@@ -2,8 +2,11 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from "redux";
 
+
 import {goBack, openPopout, closePopout, openModal} from "../../store/router/actions";
 import * as VK from '../../services/VK';
+
+import {CellButton} from "@vkontakte/vkui";
 
 import {renderGroupsList} from '../../services/renderers';
 
@@ -111,7 +114,7 @@ class HomePanelGroups extends React.Component {
                 </Group>}
                 
                 {!this.state.loading && !this.state.errorGetAuthToken && otherGroupsList &&
-                <Group title="Ваши друзья">
+                <Group title="Выберите друга, которому хотите подарить подарок">
                     <List>
                         {otherGroupsList}
                     </List>
